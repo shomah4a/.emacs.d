@@ -1,0 +1,9 @@
+migemo
+malabar-mode
+auto-complete
+theme-chenger
+js2-mode
+browse-kill-ring
+gtags
+calfw
+
