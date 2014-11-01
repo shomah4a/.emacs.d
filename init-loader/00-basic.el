@@ -20,6 +20,12 @@
 	      default-frame-alist))
 (setq initial-frame-alist default-frame-alist)
 
+;; 行表示
+(line-number-mode t)
+
+;; 絡む表示
+(column-number-mode t)
+
 ;; menu-bar いらない
 (menu-bar-mode -1)
 
@@ -50,13 +56,6 @@
 (require 'browse-kill-ring)
 (global-set-key "\M-y" 'browse-kill-ring)
 
-;;
-;; redo
-;;
-(require 'redo)
-(global-set-key [(control \?)] 'redo)
-(global-set-key [?\C-+] 'redo)
-
 
 ;; 選択範囲を削除
 (delete-selection-mode)
@@ -77,14 +76,6 @@
           '(lambda ()
              (setq auto-revert-verbose nil)))
 
-;; find-grep カスタマイズ
-(custom-set-variables
- '(grep-find-command "find . -iname '*' ! -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nHi ")
-)
-
-;; occur-mode
-;; 元のバッファで追従させる
-(add-hook 'occur-mode-hook
-          '(lambda ()
-             (next-error-follow-minor-mode)))
+(setq truncate-lines nil)
+(setq truncate-partial-width-windows nil)
 
