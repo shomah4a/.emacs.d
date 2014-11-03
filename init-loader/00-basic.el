@@ -3,7 +3,7 @@
 (setq default-frame-alist
       (append '(
                 ; (font . "-*-IPAMonaGothic-normal-normal-normal-*-14-*-*-*-d-0-iso10646-1")
-                (font . "M+ 1m Medium-10")
+                (font . "VLGothic-10.5")
 ;;		(foreground-color . "light gray")
 		(background-color . "gray10")
 ;;		(border-color . "white")
