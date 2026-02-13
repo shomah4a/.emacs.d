@@ -7,4 +7,4 @@ js2-mode
 browse-kill-ring
 gtags
 calfw
-
+sequential-command

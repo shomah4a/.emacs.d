@@ -25,3 +25,4 @@
       (setq truncate-lines nil)
     (setq truncate-lines t))
   (recenter))
+

@@ -1,4 +1,3 @@
-
 ;;; Frame parameters
 (setq default-frame-alist
       (append '(
@@ -47,15 +46,12 @@
             )) (directory-files site-lisp-root))
 
 ;; ファイル名の補完で大文字小文字無視
-(setq completion-ignore-case t)
+(custom-set-variables
+ '(read-file-name-completion-ignore-case t))
 
 ;; 同名バッファの識別方法変更
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-
-(require 'browse-kill-ring)
-(global-set-key "\M-y" 'browse-kill-ring)
-
 
 ;; 選択範囲を削除
 (delete-selection-mode)
@@ -79,3 +75,23 @@
 (setq truncate-lines nil)
 (setq truncate-partial-width-windows nil)
 
+(setq split-height-threshold nil)
+(setq split-width-threshold nil)
+
+(require 'tramp)
+(setq tramp-default-method "ssh")
+
+
+;; for wsl
+(defun wsl-copy (start end)
+  (interactive "r")
+  (shell-command-on-region start end "iconv -t UTF-16LE | clip.exe"))
+  ;; (shell-command-on-region start end "iconv -t UTF-16 | powershell.exe -Command 'Set-Clipboard -Value ([Console]::In.ReadToEnd())'"))
+  ;; (shell-command-on-region start end "iconv -t UTF-16 | powershell.exe -Command Set-Clipboard"))
+
+(defun wsl-paste ()
+  (interactive "*")
+  (shell-command "powershell.exe -Command 'Get-Clipboard -Format Text' | sed s/\r//g" 1))
+
+(advice-add 'clipboard-kill-ring-save :before #'wsl-copy)
+(advice-add 'clipboard-kill-region :before #'wsl-copy)

@@ -2,3 +2,19 @@
 #*
 .*
 *.elc
+
+# ランタイム生成物
+ac-comphist.dat
+eln-cache/
+eshell/
+network-security.data
+request/
+session.*
+tramp
+tutorial/
+
+# パッケージ署名鍵
+elpa/gnupg/
+
+# サブディレクトリの .git
+**/.git/

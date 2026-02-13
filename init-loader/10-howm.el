@@ -1,4 +1,3 @@
-
 ;; howm のメモタイトルを = から * に
 ;; (setq howm-view-title-header "*") ;; ← howm のロードより前に書くこと
 
@@ -186,4 +185,3 @@
 (require 'org)
 ;; (add-hook 'org-mode-hook 'howm-mode)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-
